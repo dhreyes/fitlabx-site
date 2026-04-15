@@ -1,0 +1,9 @@
+{
+  "name": "fitlabx-site",
+  "version": "1.0.0",
+  "description": "FitLabX - Science · Precision · Method",
+  "scripts": {
+    "start": "npx serve public",
+    "dev": "npx serve public"
+  }
+}
