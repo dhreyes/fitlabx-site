@@ -864,10 +864,8 @@ body {
   gap: 16px;
 }
 .contact-submit-cue {
-  grid-column: 2;
-  justify-self: center;
-  width: clamp(220px, 22vw, 320px);
-  margin: -126px 120px -82px 0;
+  width: clamp(280px, 31vw, 430px);
+  margin: 72px 4px -48px auto;
   pointer-events: none;
 }
 .contact-submit-cue img {
@@ -1062,10 +1060,9 @@ body {
   .testimonial-photo-card { grid-column: auto; }
   .contact-grid { grid-template-columns: 1fr; }
   .contact-submit-cue {
-    grid-column: 1;
     justify-self: center;
-    width: min(230px, 68vw);
-    margin: -64px auto -36px;
+    width: min(260px, 62vw);
+    margin: 36px auto 0;
   }
   .section { padding: 72px 20px; }
   .transform-content { padding: 40px 24px; }
@@ -1083,8 +1080,8 @@ body {
   .transform-steps { gap: 32px; }
   .contact-submit-cue {
     justify-self: start;
-    width: min(205px, 60vw);
-    margin: -56px 0 -30px 28px;
+    width: min(230px, 64vw);
+    margin: 32px auto 0;
   }
   .transformations-slider { width: calc(100% + 32px); margin: 0 -16px 40px; }
   .transformation-card { width: 280px; }
@@ -1501,6 +1498,9 @@ body {
           Online Worldwide &middot; In-Person in Jacksonville, FL
         </div>
       </div>
+      <div class="contact-submit-cue reveal" aria-hidden="true">
+        <img src="/coach-application-pointer.jpeg" alt="">
+      </div>
     </div>
     <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xpqkqbpr" method="POST">
       <div class="form-row">
@@ -1538,9 +1538,6 @@ body {
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top:8px; border:none; font-size:14px;">Submit Application &#8594;</button>
     </form>
-    <div class="contact-submit-cue reveal" aria-hidden="true">
-      <img src="/coach-application-pointer.jpeg" alt="">
-    </div>
   </div>
 </section>
 
