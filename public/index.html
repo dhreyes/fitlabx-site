@@ -879,6 +879,14 @@ body {
   opacity: 0.92;
   filter: drop-shadow(0 28px 40px rgba(0,0,0,0.55));
 }
+.contact-mobile-photo {
+  display: none;
+}
+.contact-mobile-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1065,6 +1073,13 @@ body {
   .contact-grid { grid-template-columns: 1fr; }
   .contact-submit-cue {
     display: none;
+  }
+  .contact-mobile-photo {
+    display: block;
+    margin-top: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: var(--black-card);
   }
   .section { padding: 72px 20px; }
   .transform-content { padding: 40px 24px; }
@@ -1534,6 +1549,9 @@ body {
         <textarea name="goals" class="form-textarea" placeholder="What are you looking to achieve?"></textarea>
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top:8px; border:none; font-size:14px;">Submit Application &#8594;</button>
+      <div class="contact-mobile-photo reveal">
+        <img src="/coach-mobile-application.jpeg" alt="Coach Kobey Silver standing in a gym">
+      </div>
     </form>
   </div>
 </section>
