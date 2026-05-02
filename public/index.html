@@ -627,6 +627,48 @@ body {
 }
 
 /* ==================== TESTIMONIALS ==================== */
+.transformations-slider {
+  position: relative;
+  max-width: 100vw;
+  margin: 0 -40px 48px;
+  overflow: hidden;
+}
+.transformations-slider::before,
+.transformations-slider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: min(140px, 18vw);
+  z-index: 2;
+  pointer-events: none;
+}
+.transformations-slider::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--black-light), transparent);
+}
+.transformations-slider::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--black-light), transparent);
+}
+.transformations-track {
+  display: flex;
+  width: max-content;
+  animation: transformationSwipe 46s linear infinite;
+}
+.transformations-track-set {
+  display: flex;
+  gap: 18px;
+  padding-right: 18px;
+}
+.transformation-card {
+  flex: 0 0 clamp(260px, 30vw, 360px);
+  min-height: clamp(320px, 42vw, 460px);
+}
+@keyframes transformationSwipe {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 .testimonials-grid {
   max-width: 1100px;
   margin: 0 auto;
@@ -990,10 +1032,15 @@ body {
   .transform-content { padding: 40px 24px; }
   .form-row { grid-template-columns: 1fr; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .transformations-track { animation: none; }
+}
 @media (max-width: 600px) {
   .nav { padding: 0 20px; }
   .transform-steps { gap: 32px; }
   .coach-photo-pair { grid-template-columns: 1fr; }
+  .transformations-slider { margin: 0 -16px 40px; }
+  .transformation-card { flex-basis: 280px; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
@@ -1221,38 +1268,70 @@ body {
     <h2 class="section-title">Client Transformations</h2>
     <div class="section-line"></div>
   </div>
-  <div class="testimonials-grid reveal" id="testimonialsGrid">
-    <div class="testimonial-photo-card" aria-label="Client transformation photo">
-      <img src="/client-sandra-transformation.jpeg" alt="Client transformation collage">
-      <div class="testimonial-photo-caption">Client Transformation</div>
+  <div class="transformations-slider reveal" aria-label="Client transformation photo carousel">
+    <div class="transformations-track">
+      <div class="transformations-track-set">
+        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation photo">
+          <img src="/client-sandra-transformation.jpeg" alt="Client transformation collage">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation back progress photo">
+          <img src="/client-transformation-back.jpeg" alt="Client back transformation before and after">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation side progress photo">
+          <img src="/client-transformation-side.jpeg" alt="Client side transformation before and after">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation front progress photo">
+          <img src="/client-transformation-front.jpeg" alt="Client front transformation before and after">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card" aria-label="Client strength transformation photo">
+          <img src="/client-transformation-strength.jpeg" alt="Client strength transformation before and after">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+      </div>
+      <div class="transformations-track-set" aria-hidden="true">
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-sandra-transformation.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-transformation-back.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-transformation-side.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-transformation-front.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-transformation-strength.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="testimonials-grid reveal" id="testimonialsGrid">
     <article class="testimonial-card">
       <div class="testimonial-label">Client Story</div>
       <p>&ldquo;Kobey is an incredible trainer! He helped me transform my workouts to maximize my potential. I&rsquo;m still receiving the benefits of his changes to my back and leg workouts years later.&rdquo;</p>
       <div class="testimonial-name">Tommy B.</div>
     </article>
-    <div class="testimonial-photo-card" aria-label="Client transformation back progress photo">
-      <img src="/client-transformation-back.jpeg" alt="Client back transformation before and after">
-      <div class="testimonial-photo-caption">Client Transformation</div>
-    </div>
     <article class="testimonial-card">
       <div class="testimonial-label">Client Story</div>
       <p>&ldquo;I had a mild stroke in December and started working with Kobey when my physical therapy ended. Kobey has played a large part in my recovery, and I am stronger and more confident after just a few months. I couldn&rsquo;t have done it without him!&rdquo;</p>
       <div class="testimonial-name">Fran W.</div>
     </article>
-    <div class="testimonial-photo-card" aria-label="Client transformation side progress photo">
-      <img src="/client-transformation-side.jpeg" alt="Client side transformation before and after">
-      <div class="testimonial-photo-caption">Client Transformation</div>
-    </div>
     <article class="testimonial-card">
       <div class="testimonial-label">Client Story</div>
       <p>&ldquo;Kobey meets me where I&rsquo;m at, yet pushes and motivates me to meet my fitness goals. I lost 40lbs working with Kobey through training sessions and his meal plans. He also coached me through my entire pregnancy by creating safe, yet effective, workout routines to help me prepare for labor. Kobey&rsquo;s investment in my fitness journey is evident, and I love working with him!&rdquo;</p>
       <div class="testimonial-name">Katie S.</div>
     </article>
-    <div class="testimonial-photo-card" aria-label="Client transformation front progress photo">
-      <img src="/client-transformation-front.jpeg" alt="Client front transformation before and after">
-      <div class="testimonial-photo-caption">Client Transformation</div>
-    </div>
     <article class="testimonial-card">
       <div class="testimonial-label">Client Story</div>
       <p>&ldquo;I started training with Kobey a few months ago and have already noticed a huge difference in how I feel. I came to him dealing with a lot of health issues. He&rsquo;s super understanding, adjusts everything to what my body needs, and explains things in a way that actually makes sense. What stands out to me is how much effort he puts in, even outside of sessions, like taking time to research my health issues so I&rsquo;m getting the best support possible.&rdquo;</p>
