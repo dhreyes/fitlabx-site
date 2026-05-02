@@ -654,7 +654,7 @@ body {
 .transformations-track {
   display: flex;
   width: max-content;
-  animation: transformationSwipe 46s linear infinite;
+  animation: transformationSwipe 72s linear infinite;
 }
 .transformations-track-set {
   display: flex;
@@ -664,6 +664,10 @@ body {
 .transformation-card {
   flex: 0 0 clamp(260px, 30vw, 360px);
   min-height: clamp(320px, 42vw, 460px);
+}
+.testimonial-photo-card.transformation-card img {
+  object-fit: contain;
+  background: var(--black);
 }
 @keyframes transformationSwipe {
   from { transform: translateX(0); }
@@ -1271,38 +1275,50 @@ body {
   <div class="transformations-slider reveal" aria-label="Client transformation photo carousel">
     <div class="transformations-track">
       <div class="transformations-track-set">
-        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation photo">
-          <img src="/client-sandra-transformation.jpeg" alt="Client transformation collage">
+        <div class="testimonial-photo-card transformation-card" aria-label="Client strength transformation photo">
+          <img src="/client-transformation-strength.jpeg" alt="Client strength transformation before and after">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
-        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation back progress photo">
-          <img src="/client-transformation-back.jpeg" alt="Client back transformation before and after">
+        <div class="testimonial-photo-card transformation-card" aria-label="Client bikini transformation photo">
+          <img src="/client-transformation-bikini.jpeg" alt="Client bikini transformation before and after">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
-        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation side progress photo">
-          <img src="/client-transformation-side.jpeg" alt="Client side transformation before and after">
+        <div class="testimonial-photo-card transformation-card" aria-label="Client flex transformation photo">
+          <img src="/client-transformation-flex.jpeg" alt="Client flex transformation before and after">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
         <div class="testimonial-photo-card transformation-card" aria-label="Client transformation front progress photo">
           <img src="/client-transformation-front.jpeg" alt="Client front transformation before and after">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
-        <div class="testimonial-photo-card transformation-card" aria-label="Client strength transformation photo">
-          <img src="/client-transformation-strength.jpeg" alt="Client strength transformation before and after">
+        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation side progress photo">
+          <img src="/client-transformation-side.jpeg" alt="Client side transformation before and after">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card" aria-label="Client transformation back progress photo">
+          <img src="/client-transformation-back.jpeg" alt="Client back transformation before and after">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card" aria-label="Client lifestyle transformation photo">
+          <img src="/client-sandra-transformation.jpeg" alt="Client lifestyle transformation collage">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card" aria-label="Client physique transformation photo">
+          <img src="/client-transformation-physique.jpeg" alt="Client physique transformation before and after">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
       </div>
       <div class="transformations-track-set" aria-hidden="true">
         <div class="testimonial-photo-card transformation-card">
-          <img src="/client-sandra-transformation.jpeg" alt="">
+          <img src="/client-transformation-strength.jpeg" alt="">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
         <div class="testimonial-photo-card transformation-card">
-          <img src="/client-transformation-back.jpeg" alt="">
+          <img src="/client-transformation-bikini.jpeg" alt="">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
         <div class="testimonial-photo-card transformation-card">
-          <img src="/client-transformation-side.jpeg" alt="">
+          <img src="/client-transformation-flex.jpeg" alt="">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
         <div class="testimonial-photo-card transformation-card">
@@ -1310,7 +1326,19 @@ body {
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
         <div class="testimonial-photo-card transformation-card">
-          <img src="/client-transformation-strength.jpeg" alt="">
+          <img src="/client-transformation-side.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-transformation-back.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-sandra-transformation.jpeg" alt="">
+          <div class="testimonial-photo-caption">Client Transformation</div>
+        </div>
+        <div class="testimonial-photo-card transformation-card">
+          <img src="/client-transformation-physique.jpeg" alt="">
           <div class="testimonial-photo-caption">Client Transformation</div>
         </div>
       </div>
