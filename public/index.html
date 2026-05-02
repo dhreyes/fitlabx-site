@@ -1060,9 +1060,7 @@ body {
   .testimonial-photo-card { grid-column: auto; }
   .contact-grid { grid-template-columns: 1fr; }
   .contact-submit-cue {
-    justify-self: center;
-    width: min(260px, 62vw);
-    margin: 36px auto 0;
+    display: none;
   }
   .section { padding: 72px 20px; }
   .transform-content { padding: 40px 24px; }
@@ -1078,11 +1076,6 @@ body {
 @media (max-width: 600px) {
   .nav { padding: 0 20px; }
   .transform-steps { gap: 32px; }
-  .contact-submit-cue {
-    justify-self: start;
-    width: min(230px, 64vw);
-    margin: 32px auto 0;
-  }
   .transformations-slider { width: calc(100% + 32px); margin: 0 -16px 40px; }
   .transformation-card { width: 280px; }
   .footer-inner { flex-direction: column; text-align: center; }
