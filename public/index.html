@@ -807,6 +807,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
 }
+.contact-info,
+.contact-form {
+  position: relative;
+  z-index: 1;
+}
 .contact-info h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -857,6 +862,20 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.contact-submit-cue {
+  grid-column: 2;
+  justify-self: end;
+  width: clamp(170px, 18vw, 260px);
+  margin: -20px 44px -42px 0;
+  pointer-events: none;
+}
+.contact-submit-cue img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.92;
+  filter: drop-shadow(0 28px 40px rgba(0,0,0,0.55));
 }
 .form-row {
   display: grid;
@@ -1042,6 +1061,12 @@ body {
   .testimonial-card,
   .testimonial-photo-card { grid-column: auto; }
   .contact-grid { grid-template-columns: 1fr; }
+  .contact-submit-cue {
+    grid-column: 1;
+    justify-self: center;
+    width: min(230px, 68vw);
+    margin: -12px auto -28px;
+  }
   .section { padding: 72px 20px; }
   .transform-content { padding: 40px 24px; }
   .transformations-slider { width: calc(100% + 40px); margin: 0 -20px 48px; }
@@ -1508,6 +1533,9 @@ body {
       </div>
       <button type="submit" class="btn btn-primary" style="margin-top:8px; border:none; font-size:14px;">Submit Application &#8594;</button>
     </form>
+    <div class="contact-submit-cue reveal" aria-hidden="true">
+      <img src="/coach-application-pointer.jpeg" alt="">
+    </div>
   </div>
 </section>
 
