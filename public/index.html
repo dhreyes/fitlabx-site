@@ -865,9 +865,9 @@ body {
 }
 .contact-submit-cue {
   grid-column: 2;
-  justify-self: end;
-  width: clamp(170px, 18vw, 260px);
-  margin: -20px 44px -42px 0;
+  justify-self: center;
+  width: clamp(220px, 22vw, 320px);
+  margin: -126px 120px -82px 0;
   pointer-events: none;
 }
 .contact-submit-cue img {
@@ -1065,7 +1065,7 @@ body {
     grid-column: 1;
     justify-self: center;
     width: min(230px, 68vw);
-    margin: -12px auto -28px;
+    margin: -64px auto -36px;
   }
   .section { padding: 72px 20px; }
   .transform-content { padding: 40px 24px; }
@@ -1081,6 +1081,11 @@ body {
 @media (max-width: 600px) {
   .nav { padding: 0 20px; }
   .transform-steps { gap: 32px; }
+  .contact-submit-cue {
+    justify-self: start;
+    width: min(205px, 60vw);
+    margin: -56px 0 -30px 28px;
+  }
   .transformations-slider { width: calc(100% + 32px); margin: 0 -16px 40px; }
   .transformation-card { width: 280px; }
   .footer-inner { flex-direction: column; text-align: center; }
