@@ -340,19 +340,23 @@ body {
   height: 100%;
   object-fit: cover;
 }
-.about-placeholder {
+.coach-photo-pair {
   position: relative;
   z-index: 1;
-  text-align: center;
-  padding: 40px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
 }
-.about-placeholder-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.5; }
-.about-placeholder-text {
-  font-family: var(--font-condensed);
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gray);
+.coach-photo-pair img {
+  min-width: 0;
+}
+.coach-photo-pair img:first-child {
+  object-position: 58% center;
+}
+.coach-photo-pair img:last-child {
+  object-position: 50% center;
 }
 .about-stats {
   position: absolute;
@@ -624,28 +628,64 @@ body {
 }
 
 /* ==================== TESTIMONIALS ==================== */
-.testimonials-placeholder {
-  max-width: 700px;
+.testimonials-grid {
+  max-width: 1100px;
   margin: 0 auto;
-  text-align: center;
-  padding: 48px;
-  background: var(--black-card);
-  border: 1px dashed rgba(255,255,255,0.1);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
 }
-.testimonials-placeholder p {
+.testimonial-card,
+.testimonial-photo-card {
+  background: var(--black-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  min-height: 240px;
+  overflow: hidden;
+}
+.testimonial-card {
+  grid-column: span 2;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.testimonial-card p {
   font-weight: 300;
   font-size: 16px;
-  color: var(--gray);
   line-height: 1.7;
+  color: var(--gray-light);
 }
-.testimonials-placeholder .coming-soon {
+.testimonial-name,
+.testimonial-label {
   font-family: var(--font-condensed);
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 4px;
+  font-size: 12px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--red);
-  margin-bottom: 12px;
+  margin-top: 24px;
+}
+.testimonial-label { margin-top: 0; margin-bottom: 18px; }
+.testimonial-photo-card {
+  position: relative;
+  min-height: 320px;
+}
+.testimonial-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.testimonial-card-empty,
+.testimonial-photo-card-empty {
+  border-style: dashed;
+  border-color: rgba(255,255,255,0.12);
+}
+.testimonial-photo-card-empty::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(227,27,35,0.14), transparent 58%);
 }
 
 /* ==================== FAQ ==================== */
@@ -938,6 +978,9 @@ body {
   .about-stats { position: relative; bottom: 0; right: 0; margin-top: 16px; }
   .approach-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; max-width: 420px; }
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 520px; }
+  .testimonial-card,
+  .testimonial-photo-card { grid-column: auto; }
   .contact-grid { grid-template-columns: 1fr; }
   .section { padding: 72px 20px; }
   .transform-content { padding: 40px 24px; }
@@ -946,6 +989,7 @@ body {
 @media (max-width: 600px) {
   .nav { padding: 0 20px; }
   .transform-steps { gap: 32px; }
+  .coach-photo-pair { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; text-align: center; }
   .footer-links { flex-wrap: wrap; justify-content: center; }
 }
@@ -1007,8 +1051,10 @@ body {
   <div class="about-grid">
     <div class="about-visual reveal">
       <div class="about-image-frame">
-        <!-- Replace the placeholder below with: <img src="/coach-photo.jpg" alt="Coach Kobey Silver"> -->
-        <img src="/coach-photo.png" alt="Coach Kobey Silver competing at NPC Pro League Daytona Pro/Am Championships" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:1;">
+        <div class="coach-photo-pair">
+          <img src="/coach-left.jpeg" alt="Coach Kobey Silver looking left in a black training tank">
+          <img src="/coach-right.jpeg" alt="Coach Kobey Silver smiling in a black polo">
+        </div>
       </div>
       <div class="about-stats">
         <div class="about-stat">
@@ -1086,7 +1132,7 @@ body {
           <li>Fits Your Lifestyle</li>
         </ul>
         <!-- STRIPE: Replace href with Stripe Payment Link for $140 one-time -->
-        <a href="https://buy.stripe.com/dRm6oGfHH7qwaABb7a8AE00" class="btn btn-outline" data-plan="starter" target="_blank" rel="noopener">Get Started</a>
+        <a href="#contact" class="btn btn-outline" data-plan="starter" data-stripe-url="https://buy.stripe.com/dRm6oGfHH7qwaABb7a8AE00">Get Started</a>
       </div>
     </div>
     <!-- 1-on-1 Coaching -->
@@ -1109,7 +1155,7 @@ body {
           <li>Weekly Check-ins &amp; Adjustments</li>
         </ul>
         <!-- STRIPE: Replace href with Stripe Payment Link for $200/mo recurring -->
-        <a href="https://buy.stripe.com/3cIbJ0cvvh162455MQ8AE01" class="btn btn-primary" data-plan="coaching" target="_blank" rel="noopener">Apply Now</a>
+        <a href="#contact" class="btn btn-primary" data-plan="coaching" data-stripe-url="https://buy.stripe.com/3cIbJ0cvvh162455MQ8AE01">Apply Now</a>
       </div>
     </div>
     <!-- Couples -->
@@ -1131,7 +1177,7 @@ body {
           <li>Save $50/month Together</li>
         </ul>
         <!-- STRIPE: Replace href with Stripe Payment Link for $350/mo recurring -->
-        <a href="https://buy.stripe.com/6oU14m533eSYeQR3EI8AE02" class="btn btn-outline" data-plan="couples" target="_blank" rel="noopener">Apply Together</a>
+        <a href="#contact" class="btn btn-outline" data-plan="couples" data-stripe-url="https://buy.stripe.com/6oU14m533eSYeQR3EI8AE02">Apply Together</a>
       </div>
     </div>
   </div>
@@ -1171,9 +1217,13 @@ body {
     <h2 class="section-title">Client Transformations</h2>
     <div class="section-line"></div>
   </div>
-  <div class="testimonials-placeholder reveal">
-    <div class="coming-soon">Coming Soon</div>
-    <p>Client testimonials and transformation photos will be featured here. Real results from real people in the FitLabX program.</p>
+  <div class="testimonials-grid reveal" id="testimonialsGrid">
+    <article class="testimonial-card testimonial-card-empty">
+      <div class="testimonial-label">Client Stories</div>
+      <p>Real FitLabX testimonials will be added here with first names and last initials.</p>
+      <div class="testimonial-name">Coming Soon</div>
+    </article>
+    <div class="testimonial-photo-card testimonial-photo-card-empty" aria-label="Client transformation photo slot"></div>
   </div>
 </section>
 
@@ -1289,9 +1339,9 @@ body {
         <label class="form-label">Interested In</label>
         <select name="service" class="form-select">
           <option value="">Select a service...</option>
-          <option>1-on-1 Online Coaching ($200/mo)</option>
-          <option>Starter Plan - Nutrition + Workout ($140)</option>
-          <option>Couples Coaching ($350/mo)</option>
+          <option data-plan="coaching">1-on-1 Online Coaching ($200/mo)</option>
+          <option data-plan="starter">Starter Plan - Nutrition + Workout ($140)</option>
+          <option data-plan="couples">Couples Coaching ($350/mo)</option>
           <option>In-Person Training (Jax, FL)</option>
           <option>Just Have Questions</option>
         </select>
@@ -1366,26 +1416,75 @@ for (var i = 0; i < reveals.length; i++) {
 // Contact form submission
 var form = document.getElementById('contactForm');
 if (form) {
+  var paymentLinks = {
+    starter: 'https://buy.stripe.com/dRm6oGfHH7qwaABb7a8AE00',
+    coaching: 'https://buy.stripe.com/3cIbJ0cvvh162455MQ8AE01',
+    couples: 'https://buy.stripe.com/6oU14m533eSYeQR3EI8AE02'
+  };
+  var selectedPaymentUrl = '';
+  var serviceSelect = form.querySelector('select[name="service"]');
+
+  function setSelectedPlan(plan) {
+    selectedPaymentUrl = paymentLinks[plan] || '';
+  }
+
+  function syncSelectedPlanFromService() {
+    if (!serviceSelect) return;
+    var selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+    setSelectedPlan(selectedOption ? selectedOption.getAttribute('data-plan') : '');
+  }
+
+  var planButtons = document.querySelectorAll('[data-stripe-url]');
+  for (var p = 0; p < planButtons.length; p++) {
+    planButtons[p].addEventListener('click', function(e) {
+      e.preventDefault();
+      var plan = this.getAttribute('data-plan');
+      setSelectedPlan(plan);
+      if (serviceSelect) {
+        for (var i = 0; i < serviceSelect.options.length; i++) {
+          if (serviceSelect.options[i].getAttribute('data-plan') === plan) {
+            serviceSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  if (serviceSelect) {
+    serviceSelect.addEventListener('change', syncSelectedPlanFromService);
+  }
+
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var btn = form.querySelector('button[type="submit"]');
     var originalText = btn.innerHTML;
     btn.innerHTML = 'Sending...';
     btn.disabled = true;
+    syncSelectedPlanFromService();
     fetch('https://formspree.io/f/xpqkqbpr', {
       method: 'POST',
       body: new FormData(form),
       headers: { 'Accept': 'application/json' }
     }).then(function(response) {
       if (response.ok) {
+        var redirectUrl = selectedPaymentUrl;
         btn.innerHTML = '\u2713 Application Sent!';
         btn.style.background = '#22c55e';
         form.reset();
-        setTimeout(function() {
-          btn.innerHTML = originalText;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 3000);
+        selectedPaymentUrl = '';
+        if (redirectUrl) {
+          setTimeout(function() {
+            window.location.href = redirectUrl;
+          }, 1200);
+        } else {
+          setTimeout(function() {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 3000);
+        }
       } else {
         btn.innerHTML = 'Error - Try Again';
         btn.style.background = '#ef4444';
